@@ -35,9 +35,10 @@ if __name__ == '__main__':
         'cutremur': trace['C'].tolist()
     }
     df = pd.DataFrame(dictionary)
+    print(df)
 
     p_cutremur_alarma = df[((df['cutremur'] == 1) & (df['incendiu'] == 1))].shape[0] / df[df['incendiu'] == 1].shape[0]
     print(p_cutremur_alarma)
 
-    az.plot_posterior(trace)
-    plt.show()
+    #az.plot_posterior(trace)
+    #plt.show()
