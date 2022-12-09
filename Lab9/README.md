@@ -1,1 +1,1 @@
-Laboratorul 8, nu 9 :D
+Laboratorul 8, nu 9 :D.
