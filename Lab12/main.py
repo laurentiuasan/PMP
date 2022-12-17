@@ -44,3 +44,12 @@ if __name__ == "__main__":
             idata = pm.sample(1000, tune=2000, target_accept=0.9, random_seed=123, return_inferencedata=True)
             idatas.append(idata)
             models.append(model)
+
+    # 3
+    waic = az.waic(500, scale="deviance")
+    loo = az.loo(500, scale="deviance")
+
+    compare_waic = az.compare({'model_1': models[0], 'model_2': models[1], 'model_3': models[3]},
+                             method='BB-pseudo-BMA', ic="waic", scale="deviance")
+    compare_loo = az.compare({'model_1': models[0], 'model_2': models[1], 'model_3': models[3]},
+                             method='BB-pseudo-BMA', ic="loo", scale="deviance")
